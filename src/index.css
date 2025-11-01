@@ -1,0 +1,133 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Definition of the design system. All colors, gradients, fonts, etc should be defined here. 
+All colors MUST be HSL.
+*/
+
+@layer base {
+  :root {
+    /* SerenityMind - Dark Calming Theme */
+    --background: 225 25% 8%;
+    --foreground: 210 40% 98%;
+
+    --card: 225 20% 12%;
+    --card-foreground: 210 40% 98%;
+
+    --popover: 225 25% 10%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 50% 60%;
+    --primary-foreground: 225 25% 8%;
+
+    --secondary: 270 40% 35%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 225 15% 20%;
+    --muted-foreground: 210 20% 70%;
+
+    --accent: 180 45% 55%;
+    --accent-foreground: 225 25% 8%;
+
+    --peaceful: 270 50% 70%;
+    --peaceful-foreground: 225 25% 8%;
+
+    --motivated: 35 85% 60%;
+    --motivated-foreground: 225 25% 8%;
+
+    --destructive: 0 70% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 225 20% 20%;
+    --input: 225 20% 18%;
+    --ring: 210 50% 60%;
+
+    --radius: 0.75rem;
+
+    /* Gradients */
+    --gradient-calm: linear-gradient(135deg, hsl(225, 25%, 10%) 0%, hsl(240, 30%, 15%) 100%);
+    --gradient-peaceful: linear-gradient(135deg, hsl(270, 40%, 25%) 0%, hsl(240, 35%, 20%) 100%);
+    --gradient-glow: linear-gradient(135deg, hsl(210, 50%, 60%) 0%, hsl(180, 45%, 55%) 100%);
+
+    /* Shadows & Effects */
+    --shadow-soft: 0 4px 20px -2px hsl(225 25% 5% / 0.3);
+    --shadow-glow: 0 0 30px hsl(210 50% 60% / 0.15);
+    --blur-backdrop: blur(12px);
+
+    --sidebar-background: 225 25% 10%;
+    --sidebar-foreground: 210 40% 98%;
+    --sidebar-primary: 210 50% 60%;
+    --sidebar-primary-foreground: 225 25% 8%;
+    --sidebar-accent: 225 20% 15%;
+    --sidebar-accent-foreground: 210 40% 98%;
+    --sidebar-border: 225 20% 18%;
+    --sidebar-ring: 210 50% 60%;
+  }
+
+  .dark {
+    /* Dark mode uses same palette - this is already a dark theme */
+    --background: 225 25% 8%;
+    --foreground: 210 40% 98%;
+  }
+}
+
+@layer base {
+  * {
+    @apply border-border;
+  }
+
+  body {
+    @apply bg-background text-foreground;
+    background: var(--gradient-calm);
+    background-attachment: fixed;
+  }
+}
+
+/* Breathing Animation */
+@keyframes breathe {
+  0%, 100% {
+    transform: scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: scale(1.05);
+    opacity: 0.8;
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes glow-pulse {
+  0%, 100% {
+    box-shadow: 0 0 20px hsl(210 50% 60% / 0.3);
+  }
+  50% {
+    box-shadow: 0 0 40px hsl(210 50% 60% / 0.5);
+  }
+}
+
+/* Utility Classes */
+.breathe {
+  animation: breathe 4s ease-in-out infinite;
+}
+
+.float {
+  animation: float 6s ease-in-out infinite;
+}
+
+.glow-pulse {
+  animation: glow-pulse 3s ease-in-out infinite;
+}
+
+.backdrop-blur-glass {
+  backdrop-filter: var(--blur-backdrop);
+  background: hsl(225 20% 12% / 0.7);
+}

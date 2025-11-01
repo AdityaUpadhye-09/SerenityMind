@@ -1,0 +1,4 @@
+project_id = "eupepywiekccvjpfdmbo"
+
+[functions.analyze-mood]
+verify_jwt = true
